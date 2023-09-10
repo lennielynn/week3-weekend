@@ -20,7 +20,7 @@ class ROICalculator:
         
     def CashFlow(self):
         self.cashFlow = self.income - self.expences
-        print(f"Based on this infor your estimated Cash Flow is {self.cashFlow}")
+        print(f"Based on the given info your estimated Cash Flow is {self.cashFlow}")
    
         
     def TotalInv(self):
@@ -43,7 +43,9 @@ class ROICalculator:
     def View(self):
         print(f'Total Rental Income: {self.income}')
         print(f'Total Property Expence: {self.expences}')
+        print(f'Total Cash Flow: {self.cashFlow}')
         print(f'Total Investment Value: {self.totalInvest}. \nThis value includes: \n - Down Payment \n - Total Closing Cost \n - Extra Expense')
+        print(f'Your Estemated ROI is {self.roi}% ')
         
         
 def Driver():
@@ -60,11 +62,21 @@ def Driver():
             continue
         elif response == 'r':
             estamate.View()
-            input('Would you like to [q]uit, or [s]tart over? ')
-            if response == 'q':
+            response_2 = input('Would you like to [q]uit, or [s]tart over? [c]hange my info')
+            if response_2 == 'q':
                 break
-            elif response == 's':
+            elif response_2 == 's':
                 continue
+            elif response_2 == 'c':
+                response_3 = input('What info would you like to edit?\n[i]ncome, [e]xpences, [t]otal investment ')
+                if response_3 == 'i':
+                    estamate.Income()
+                    estamate.CashFlow()
+                elif response_3 == 'e':
+                    estamate.Expence()
+                    estamate.CashFlow()
+                elif response_3 == 't':
+                    estamate.TotalInv
         
 
 estamate = ROICalculator(0, 0, 0, 0, 0)
