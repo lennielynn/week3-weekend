@@ -10,12 +10,11 @@ class ROICalculator:
         
         
     def Income(self):
-        print('To calculate your R.O.I., first, we need some info...')
-        self.income = float(input('Please enter Total Rental Income (The amout made before expences) '))
+        self.income = float(input('Please enter Total Rental Income (The amout made before expences)\n(example input: 2000) '))
         
         
     def Expence(self):
-        self.expences = float(input('Plase enter Total Property Expence(The cost of owning/maintaining the property) '))
+        self.expences = float(input('Plase enter Total Property Expence(The cost of owning/maintaining the property)\n(example input: 1610) '))
         
         
     def CashFlow(self):
@@ -50,33 +49,37 @@ class ROICalculator:
         
 def Driver():
     while True:
+        print('To calculate your R.O.I., first, we need some info...')
         estamate.Income()
         estamate.Expence()
         estamate.CashFlow()
         estamate.TotalInv()
         estamate.EstematedROI()
-        response = input('Would you like to [q]uit, [r]eview your info, or [s]tart over? ')
+        response = input('Would you like to [q]uit, [r]eview your info, or [s]tart over? ').lower
         if response == 'q':
             break
         elif response == 's':
             continue
         elif response == 'r':
             estamate.View()
-            response_2 = input('Would you like to [q]uit, or [s]tart over? [c]hange my info')
+            response_2 = input('Would you like to [q]uit, or [s]tart over? [c]hange my info? ').lower
             if response_2 == 'q':
                 break
             elif response_2 == 's':
                 continue
             elif response_2 == 'c':
-                response_3 = input('What info would you like to edit?\n[i]ncome, [e]xpences, [t]otal investment ')
+                response_3 = input('What info would you like to edit?\n[i]ncome, [e]xpences, [t]otal investment ').lower
                 if response_3 == 'i':
                     estamate.Income()
                     estamate.CashFlow()
+                    response = input('Would you like to [q]uit, [r]eview your info, or [s]tart over? ').lower    
                 elif response_3 == 'e':
                     estamate.Expence()
                     estamate.CashFlow()
+                    response = input('Would you like to [q]uit, [r]eview your info, or [s]tart over? ').lower
                 elif response_3 == 't':
                     estamate.TotalInv
+                    response = input('Would you like to [q]uit, [r]eview your info, or [s]tart over? ').lower
         
 
 estamate = ROICalculator(0, 0, 0, 0, 0)
