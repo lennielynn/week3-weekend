@@ -72,14 +72,32 @@ def Driver():
                 if response_3 == 'i':
                     estamate.Income()
                     estamate.CashFlow()
-                    response = input('Would you like to [q]uit, [r]eview your info, or [s]tart over? ').lower    
+                    response_a = input('Would you like to [q]uit, [r]eview your info, or [s]tart over? ').lower
+                    if response_a == 'q':
+                            break
+                    elif response_a == 's':
+                            continue
+                    elif response_a == 'r':
+                            estamate.View()    
                 elif response_3 == 'e':
                     estamate.Expence()
                     estamate.CashFlow()
                     response = input('Would you like to [q]uit, [r]eview your info, or [s]tart over? ').lower
+                    if response == 'q':
+                        break
+                    elif response == 's':
+                        continue
+                    elif response == 'r':
+                        estamate.View()
                 elif response_3 == 't':
                     estamate.TotalInv
                     response = input('Would you like to [q]uit, [r]eview your info, or [s]tart over? ').lower
+                    if response == 'q':
+                        break
+                    elif response == 's':
+                        continue
+                    elif response == 'r':
+                        estamate.View()
         
 
 estamate = ROICalculator(0, 0, 0, 0, 0)
